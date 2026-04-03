@@ -1,6 +1,7 @@
-from django.urls import path # import path, similar to project's urls.py
-from . import views # import views.py from the current directory
+from django.urls import path
+from . import views
 
 urlpatterns = [
+    path('access/', views.site_access, name='site-access'),
     path('', views.index, name='index'),
 ]
