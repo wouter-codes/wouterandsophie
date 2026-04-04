@@ -1,99 +1,60 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* CSS VARIABLES */
+:root {
+    /* Typography */
+    --primary-font: "Libre+Baskerville", serif;
+    --secondary-font: "Capriola", sans-serif;
+    --tertiary-font: "Lato", sans-serif;
+    --quaternary-font: "Tenor+Sans", sans-serif;
+
+    /* Text colours */
+    --primary-color: #4C7B99; /* Steel Blue (from flower) */
+    --secondary-color: #617B60; /* Sage Green (from leaves) */
+    --tertiary-color: #C8423B; /* Coral Red (from sun) */
+    --fourth-color: #9F3340; /* Crimson Red (from rose) */
+    --fifth-color: #E6C548; /* Golden Yellow (from sun) */
+    --sixth-color: #3F3F49; /* Charcoal Gray (from Cecil dog) */
+
+    /* Background colours */
+    --background-color-primary: #E6DED5; /* Sandy Sail (Light Cream) */
+    --background-color-secondary: #02374f; /* Deep Space Blue */
+    --background-color-tertiary: #0e5c81; /* Charcoal Blue */
+    --background-color-quaternary: #0d85bd; /* Blue Bell */
+    --background-color-quinary: #0d85bd08; /* Blue Bell */
+
+    /* Card background colours */
+    --card-bg-green: #31bb5115; /* Light Green */
+    --card-bg-yellow: #ffd90016; /* Light Yellow */
+    --card-bg-red: #d8252511; /* Light Red */
 }
 
+/* GLOBAL STYLES */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    font-family: var(--tertiary-font);
+    color: var(--sixth-color);
+    /* padding-top: 57.52px; /* Adjusted for navbar height */
+    background-color: var(--background-color-primary);
+    cursor: url('../images/flower-cursor.png') 32 32, auto;
 }
 
-.container {
-    text-align: center;
-    color: white;
-    z-index: 1;
-    animation: fadeInUp 1s ease-out;
+h1,
+h2,
+h3 {
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+    animation: fadeInUp 1s ease-out forwards;
 }
 
-.coming-soon-content {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    padding: 60px 40px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    max-width: 600px;
+h2.card-title,
+h3 {
+    font-size: 1.3rem;
 }
 
-h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    opacity: 0.9;
-    line-height: 1.6;
-}
-
-.description {
+h2.passenger-request {
     font-size: 1.1rem;
-    margin-bottom: 40px;
-    opacity: 0.8;
-    line-height: 1.8;
 }
 
-.email-signup {
-    margin-top: 40px;
-}
-
-.email-signup input {
-    padding: 14px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 50px;
-    width: 100%;
-    max-width: 350px;
-    outline: none;
-    background: white;
-    color: #333;
-}
-
-.email-signup input::placeholder {
-    color: #999;
-}
-
-.email-signup button {
-    padding: 14px 40px;
-    font-size: 1rem;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-top: 15px;
-    font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.email-signup button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.emoji-animation {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    display: inline-block;
-    animation: bounce 2s infinite;
+p {
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 @keyframes fadeInUp {
@@ -104,28 +65,5 @@ h1 {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .subtitle {
-        font-size: 1.2rem;
-    }
-
-    .coming-soon-content {
-        padding: 40px 30px;
     }
 }
