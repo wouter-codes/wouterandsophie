@@ -41,13 +41,87 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
     <body>
+        <!-- Navigation Bar -->
+        {% if request.resolver_match.url_name != 'index' %}
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark border-bottom">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="{% url 'index' %}">
+                    <img
+                        src="{% static 'images/boat-logo.png' %}"
+                        alt="Wouter & Sophie Wedding Logo"
+                        class="logo"
+                    />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item nav-text">
+                            <a class="nav-link{% if request.resolver_match.url_name == 'index' %} active" aria-current="page{% endif %}" href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item nav-text">
+                            <a class="nav-link{% if request.resolver_match.url_name == 'accommodation' %} active" aria-current="page{% endif %}" href="{% url 'accommodation' %}">Accommodation</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% endif %}
 
-        {% block content %}{% endblock %}
+        <main class="content-wrapper">
+            {% block content %}{% endblock %}
+        </main>
 
         <!-- Bootstrap 5 JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         
         <!-- Custom JS -->
         <script src="{% static 'js/script.js' %}"></script>
+
+        <!-- Booking Modal -->
+        <div class="modal fade" id="bookingModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: var(--primary-blue); color: var(--primary-white); border: none;">
+                        <h5 class="modal-title">Reserve A Spot</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-3">Ready to reserve a spot for one of the accommodations? Fill out our booking form to secure your spot!</p>
+                        <p class="text-muted mb-4">You'll be able to specify your accommodation preference and let us know your details.</p>
+                        <a href="https://forms.gle/YxjfzWkDQHknUry39" target="_blank" class="btn btn-blue btn-lg w-100">Open Booking Form</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Confirmation Modal -->
+        <div class="modal fade" id="bookingConfirmationModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-success">
+                    <div class="modal-header" style="background-color: var(--primary-green); color: var(--primary-white); border: none;">
+                        <h5 class="modal-title">✓ Booking Confirmed</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div class="mb-4">
+                            <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--primary-rose);"></i>
+                        </div>
+                        <h5 class="mb-3">Your booking has been confirmed!</h5>
+                        <p class="mb-4 text-muted" id="confirmationTierText">Your requested beds have been successfully booked.</p>
+                        <div class="alert alert-light border">
+                            <p class="mb-2"><strong>What happens next:</strong></p>
+                            <ul class="text-start mb-0" style="font-size: 0.95rem;">
+                                <li>A confirmation email with all booking details will be sent to you shortly</li>
+                                <li>Your payment details and booking reference will be included</li>
+                                <li>Please keep this information safe for check-in</li>
+                            </ul>
+                        </div>
+                        <p class="mt-4 mb-0 text-muted"><small>If you don't receive an email within the next hour, please check your spam folder or contact us.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

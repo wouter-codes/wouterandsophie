@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Header -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1>Accommodation</h1>
+            <p>We might be able to help you find some accommodation if you haven't already found something.</p><p><strong>Please note: all options we're offering will be for 2 nights from Friday 24 to Sunday 26 July.</strong></p>
+    </div>
+
+    <!-- Accommodation Cards -->
+    <div class="row g-4 mb-5">
+        <!-- Budget Option -->
+        <div class="col-md-12 col-lg-4">
+            <a href="{% url 'budget' %}" class="card-link">
+                <div class="card h-100 shadow-sm border-success">
+                <div class="card-header">
+                    <h2 class="card-title mb-0">Budget</h2>
+                </div>
+                <img src="{% static 'images/budget.jpg' %}" alt="Budget accommodation">
+                <div class="card-footer"><h3>£25 per person/night</h3></div>
+                <div class="card-body accomodation-card">
+                    <p class="card-text">
+                        Single bunk beds in a barn on a working farm.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <strong>Beds:</strong> 4 bunk beds per room
+                        </li>
+                        <li class="mb-2">
+                            <strong>Bathroom:</strong> Shared
+                        </li>
+                        <li class="mb-2">
+                            <strong>Distance:</strong> 15 min drive
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </a>
+        </div>
+
+        <!-- Mid-Range Option -->
+        <div class="col-md-12 col-lg-4">
+            <a href="{% url 'midrange' %}" class="card-link">
+                <div class="card h-100 shadow-sm border-primary">
+                <div class="card-header">
+                    <h2 class="card-title mb-0">Mid-Range</h2>
+                </div>
+                <img src="{% static 'images/mid-range.jpg' %}" alt="Mid-range accommodation">
+                <div class="card-footer"><h3>£50 per person/night</h3></div>
+                <div class="card-body accomodation-card">
+                    <p class="card-text">
+                        Bunk bed rooms in refurbished church.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <strong>Beds:</strong> 2, 3 or 4 beds per room
+                        </li>
+                        <li class="mb-2">
+                            <strong>Bathroom:</strong> Private en-suite
+                        </li>
+                        <li class="mb-2">
+                            <strong>Distance:</strong> 20 min drive
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </a>
+        </div>
+
+        <!-- Comfort Option -->
+        <div class="col-md-12 col-lg-4">
+            <a href="{% url 'comfort' %}" class="card-link">
+                <div class="card h-100 shadow-sm border-warning">
+                <div class="card-header">
+                    <h2 class="card-title mb-0">Comfort</h2>
+                </div>
+                <img src="{% static 'images/comfort.png' %}" alt="Comfort accommodation">
+                <div class="card-footer"><h3>£75 per person/night</h3></div>
+                <div class="card-body accomodation-card">
+                    <p class="card-text">
+                        Hotel or B&B with standard or double rooms.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <strong>Beds:</strong> Standard or double rooms
+                        </li>
+                        <li class="mb-2">
+                            <strong>Bathroom:</strong> Private
+                        </li>
+                        <li class="mb-2">
+                            <strong>Distance:</strong> 10 min drive
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

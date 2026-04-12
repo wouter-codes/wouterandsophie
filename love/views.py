@@ -1,5 +1,10 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.core.mail import send_mail
+from django.utils import timezone
+import json
 
 from .forms import SiteAccessForm
 
@@ -25,3 +30,95 @@ def site_access(request):
 
 def index(request):
     return render(request, 'love/index.html')
+
+
+def accommodation(request):
+    return render(request, 'love/accommodation.html')
+
+
+def budget(request):
+    return render(request, 'love/budget.html')
+
+
+def midrange(request):
+    return render(request, 'love/midrange.html')
+
+
+def comfort(request):
+    return render(request, 'love/comfort.html')
+
+
+@require_POST
+def submit_booking(request):
+    """
+    Handle booking form submission and send confirmation email.
+    Expects JSON POST data with: guestNames, numberOfPeople, tier, cost, currency
+    """
+    try:
+        data = json.loads(request.body)
+        
+        # Extract form data
+        guest_names = data.get('guestNames', [])
+        num_people = data.get('numberOfPeople', '')
+        tier = data.get('tier', '').strip()
+        cost = data.get('cost', '')
+        currency = data.get('currency', 'GBP').strip()
+        
+        # Validate required fields
+        if not all([guest_names, num_people, tier, cost]):
+            return JsonResponse(
+                {'success': False, 'error': 'Missing required fields'},
+                status=400
+            )
+        
+        # Get current timestamp
+        submission_time = timezone.now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        # Format guest names for email
+        guest_list = '\n'.join([f'{i+1}. {name}' for i, name in enumerate(guest_names)])
+        
+        # Prepare email content
+        subject = f"New Booking Payment Received - {tier.title()} Accommodation"
+        
+        message = f"""
+New Booking Payment Received
+======================
+
+Submission Date: {submission_time}
+
+Guest Information:
+------------------
+Number of Guests: {num_people}
+Guest Names:
+{guest_list}
+
+Booking Details:
+----------------
+Accommodation Tier: {tier.title()}
+Cost: {cost} {currency}
+
+---
+This email was generated automatically from the booking form.
+"""
+        
+        # Send email to admin
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.ADMIN_EMAIL],  # Send to admin email
+            fail_silently=False,
+        )
+        
+        return JsonResponse({'success': True, 'message': 'Booking submitted successfully'})
+    
+    except json.JSONDecodeError:
+        return JsonResponse(
+            {'success': False, 'error': 'Invalid JSON'},
+            status=400
+        )
+    except Exception as e:
+        return JsonResponse(
+            {'success': False, 'error': str(e)},
+            status=500
+        )

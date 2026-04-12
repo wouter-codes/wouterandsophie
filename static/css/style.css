@@ -6,33 +6,37 @@
     --tertiary-font: "Lato", sans-serif;
     --quaternary-font: "Tenor+Sans", sans-serif;
 
-    /* Text colours */
-    --primary-color: #4C7B99; /* Steel Blue (from flower) */
-    --secondary-color: #617B60; /* Sage Green (from leaves) */
-    --tertiary-color: #C8423B; /* Coral Red (from sun) */
-    --fourth-color: #9F3340; /* Crimson Red (from rose) */
-    --fifth-color: #E6C548; /* Golden Yellow (from sun) */
-    --sixth-color: #3F3F49; /* Charcoal Gray (from Cecil dog) */
+    /* Colours from wedding invitation */
+    --primary-blue: #4C7B99; /* Steel Blue (from flower) */
+    --secondary-blue: #325f7b; /* Light Steel Blue (from flower) */
+    --primary-rose: #C95F7D; /* Light Steel Blue (from flower) */
+    --secondary-rose: #e7bac7; /* Rosy Brown (from flower) */
+    --primary-green: #617B60; /* Sage Green (from leaves) */
+    --primary-red: #C8423B; /* Coral Red (from sun) */
+    --secondary-red: #9F3340; /* Crimson Red (from rose) */
+    --primary-yellow: #E6C548; /* Golden Yellow (from sun) */
+    --primary-gray: #3F3F49; /* Charcoal Gray (from Cecil dog) */
+    --secondary-gray: #adadb1;
+    --primary-white: #f7fcff; /* Off-White */
+    --secondary-white: #e6ebee; /* Light Gray (for cards) */
 
     /* Background colours */
-    --background-color-primary: #E6DED5; /* Sandy Sail (Light Cream) */
-    --background-color-secondary: #02374f; /* Deep Space Blue */
-    --background-color-tertiary: #0e5c81; /* Charcoal Blue */
-    --background-color-quaternary: #0d85bd; /* Blue Bell */
-    --background-color-quinary: #0d85bd08; /* Blue Bell */
+    --bg-color-primary: #E6DED5; /* Sandy Sail (Light Cream) */
+    --bg-color-secondary: #B8AFA3; /* Sandy Sail (Darker) */
+}
 
-    /* Card background colours */
-    --card-bg-green: #31bb5115; /* Light Green */
-    --card-bg-yellow: #ffd90016; /* Light Yellow */
-    --card-bg-red: #d8252511; /* Light Red */
+/* CONTENT WRAPPER - ensures all pages fill viewport height if needed */
+.content-wrapper {
+    height: calc(100vh - 67px);
+    display: flex;
+    flex-direction: column;
 }
 
 /* GLOBAL STYLES */
 body {
     font-family: var(--tertiary-font);
-    color: var(--sixth-color);
-    /* padding-top: 57.52px; /* Adjusted for navbar height */
-    background-color: var(--background-color-primary);
+    color: var(--primary-gray);
+    background-color: var(--bg-color-primary);
     cursor: url('../images/flower-cursor.png') 32 32, auto;
 }
 
@@ -40,21 +44,146 @@ h1,
 h2,
 h3 {
     font-family: var(--primary-font);
-    color: var(--primary-color);
+    color: var(--primary-blue);
+}
+
+.index {
     animation: fadeInUp 1s ease-out forwards;
+    flex: 1;
 }
 
-h2.card-title,
-h3 {
-    font-size: 1.3rem;
+/* NAVBAR */
+#navbar {
+    background-color: var(--primary-blue);
 }
 
-h2.passenger-request {
-    font-size: 1.1rem;
+.nav-text .nav-link {
+    color: var(--secondary-white);
 }
 
-p {
-    animation: fadeInUp 1s ease-out forwards;
+.nav-text .nav-link.active {
+    font-weight: bold;
+}
+
+.navbar .logo {
+    height: 40px;
+}
+
+/* CARDS */
+.card {
+    border: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    overflow: visible;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.card-link:hover .card {
+    box-shadow: 0 6px 16px rgba(159, 51, 64, 0.3) !important;
+    transform: translateY(-4px);
+}
+
+.card-title h1, h2, h3 {
+    font-family: var(--tertiary-font);
+}
+
+.card-header {
+    background-color: var(--primary-rose);
+    color: var(--primary-white);
+}
+
+.card-title {
+    font-family: var(--tertiary-font);
+    font-size: 1.5rem;
+}
+
+.accomodation-card {
+    padding-bottom: 0;
+}
+
+.card-footer h3 {
+    color: var(--secondary-red);
+    font-size: 1.25rem;
+    margin-bottom: 0;
+}
+
+.card-footer {
+    background-color: var(--secondary-rose);
+}
+
+.card a {
+    background-color: var(--primary-blue);
+    color: var(--primary-white);
+    border: none;
+}
+
+.card a:hover {
+    background-color: var(--secondary-blue);
+}
+
+.btn-rose {
+    background-color: var(--primary-rose) !important;
+    color: var(--primary-white) !important;
+    border: none !important;
+}
+
+.btn-rose:hover {
+    background-color: var(--secondary-rose) !important;
+}
+
+.btn-blue {
+    background-color: var(--secondary-blue) !important;
+    color: var(--primary-white) !important;
+    border: none !important;
+}
+
+.btn-blue:hover {
+    background-color: var(--primary-blue) !important;
+}
+
+/* Button Group Styling */
+.btn-group .btn-rose {
+    background-color: var(--secondary-rose) !important;
+}
+
+.btn-group .btn-rose.active {
+    background-color: var(--primary-rose) !important;
+}
+
+/* MODAL STYLING */
+.modal-content {
+    border: none;
+    box-shadow: 0 5px 15px rgba(159, 51, 64, 0.2);
+}
+
+.modal-header {
+    border-bottom: 2px solid var(--primary-rose);
+}
+
+.modal-footer {
+    border-top: 2px solid var(--secondary-rose);
+}
+
+/* CAROUSEL OVERLAY BUTTON */
+.carousel-book-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel:hover .carousel-book-btn {
+    opacity: 1;
 }
 
 @keyframes fadeInUp {
@@ -65,5 +194,19 @@ p {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 576px) {
+    .card img {
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 992px) {
+    .card img {
+        height: 200px;
+        object-fit: cover;
     }
 }

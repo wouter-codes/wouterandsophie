@@ -138,5 +138,24 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Email Configuration
+# Development: Uses console backend (emails print to terminal)
+# Production: Set EMAIL_BACKEND and SMTP credentials in environment variables
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+    EMAIL_HOST = os.environ.get('EMAIL_HOST', '')
+    EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
+    EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+
+# Email sender address
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', '')
+
+# Email recipient address (where bookings are sent)
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', '')
+
 # Shared site gate password (optional). If empty, gate middleware is disabled.
 SITE_ACCESS_PASSWORD = os.environ.get("SITE_ACCESS_PASSWORD", "")
