@@ -1,6 +1,6 @@
 // Currency button toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const EUR_TO_GBP = 1.18; // Exchange rate
+    const EUR_TO_GBP = 1.16; // Exchange rate
     const TIERS = {
         budget: { pricePerNight: 25, displayId: 'budgetCostDisplay', rangeId: 'budgetAmountPeople', bankDetailsId: 'budgetCostBankDetails' },
         midrange: { pricePerNight: 50, displayId: 'midrangeCostDisplay', rangeId: 'midrangeAmountPeople', bankDetailsId: 'midrangeCostBankDetails' },
