@@ -106,6 +106,7 @@ h3 {
 .card-header {
     background-color: var(--primary-rose);
     color: var(--primary-white);
+    border: none;
 }
 
 .card-title {
@@ -125,6 +126,7 @@ h3 {
 
 .card-footer {
     background-color: var(--secondary-rose);
+    border: none;
 }
 
 .card .btn {
@@ -173,7 +175,7 @@ h3 {
 }
 
 .modal-header {
-    border-bottom: 2px solid var(--primary-rose);
+    border: none;
 }
 
 .modal-footer {
