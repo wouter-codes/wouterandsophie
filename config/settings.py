@@ -152,7 +152,7 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 
 # Email sender address
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', '')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'rsvp@wouterandsophie.love')
 
 # Email recipient address (where bookings are sent)
 ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', '')

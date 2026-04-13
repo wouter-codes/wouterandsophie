@@ -186,6 +186,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Function to reset booking modal form
+    function resetBookingModal(tierLower) {
+        // Uncheck ready-to-pay checkbox
+        const readyToPayCheckbox = document.getElementById(`ready-to-pay-check-${tierLower}`);
+        if (readyToPayCheckbox) {
+            readyToPayCheckbox.checked = false;
+        }
+        
+        // Hide payment details
+        const paymentDetailsDiv = document.getElementById(`${tierLower}PaymentDetails`);
+        if (paymentDetailsDiv) {
+            paymentDetailsDiv.style.display = 'none';
+        }
+        
+        // Uncheck confirmation checkbox
+        const confirmCheckbox = document.getElementById(`confirmFinalBooking-${tierLower}`);
+        if (confirmCheckbox) {
+            confirmCheckbox.checked = false;
+        }
+        
+        // Reset range slider to 1
+        const rangeSlider = document.getElementById(`${tierLower}AmountPeople`);
+        if (rangeSlider) {
+            rangeSlider.value = '1';
+            // Trigger change event to update displays
+            rangeSlider.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        
+        // Reset currency to GBP (first button should be active)
+        const currencyButtons = document.querySelectorAll(`#paymentModal${tierLower.charAt(0).toUpperCase() + tierLower.slice(1)} .btn-group .btn-rose`);
+        currencyButtons.forEach(btn => btn.classList.remove('active'));
+        if (currencyButtons.length > 0) {
+            currencyButtons[0].classList.add('active');
+        }
+        
+        // Clear all guest name fields
+        const nameFieldsContainer = document.getElementById(`${tierLower}NameFields`);
+        if (nameFieldsContainer) {
+            nameFieldsContainer.innerHTML = '';
+        }
+    }
+
     // Handle Complete Booking button clicks - submit form and transition to confirmation modal
     const completeBookingButtons = [
         { button: 'completeButton-budget', paymentModal: 'paymentModalBudget', tier: 'Budget', costPerPerson: 25 },
@@ -290,6 +332,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (paymentModal) {
                             paymentModal.hide();
                         }
+                        
+                        // Reset the form
+                        const tierLower = pair.tier.toLowerCase().replace('-', '');
+                        resetBookingModal(tierLower);
                         
                         // Open confirmation modal
                         setTimeout(() => {
