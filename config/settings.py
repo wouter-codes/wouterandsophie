@@ -34,7 +34,7 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 ALLOWED_HOSTS = ['.herokuapp.com', '.127.0.0.1', 'www.wouterandsophie.love',
     'wouterandsophie.love',]
 
-CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com', 'https://www.wouterandsophie.love', 'https://wouterandsophie.love']
 
 # Application definition
 
