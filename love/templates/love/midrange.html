@@ -3,13 +3,6 @@
 
 {% block content %}
 <div class="container my-5">
-    <!-- Header -->
-    <div class="row mb-5">
-        <div class="col-lg-8 mx-auto text-center">
-            <h1>Mid-Range Accommodation</h1>
-            <p>~£50 per person/night</p>
-        </div>
-    </div>
 
     <!-- Mid-Range Details -->
     <div class="row mb-5">
@@ -17,7 +10,6 @@
             <div class="card shadow-sm border-primary">
                 <div class="card-header">
                     <h2 class="card-title mb-0">Mid-Range</h2>
-                    <p class="card-text mb-0 small">~£50 per person/night</p>
                 </div>
                 <div id="midrangeCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -55,7 +47,12 @@
                 </div>
                 <div class="card-footer"><h3>£50 per person/night</h3></div>
                 <div class="card-body">
-                    <p class="card-text text-muted mb-3">Bunk bed rooms with private en-suite bathrooms. Great balance of comfort and value.</p>
+                    <h3>St Michael's Lodge</h3>
+                    <p class="card-text mb-3">Experience comfort with character at St Michael's Lodge, nestled high above the River Swale in beautiful Swaledale. 
+                        Hudswell Community Charity who now own the building transformed the church’s interior into a hostel with 17 beds across six bedrooms. 
+                        The ground floor rooms are fully accessible, and the hostel features a resident’s lounge and a kitchen. 
+                        The rooms mix historic charm with modern comfort. Each room accommodates 2 to 4 guests and offers 
+                        the perfect balance of quality accommodation and value. </p>
                     
                     <h3>Amenities</h3>
                     <ul class="list-unstyled mb-4">
@@ -66,28 +63,26 @@
                             <strong>Bathroom:</strong> Private en-suite
                         </li>
                         <li class="mb-2">
-                            <strong>Distance:</strong> 20 min drive from venue
+                            <strong>Wi-Fi:</strong> Free Wi-Fi throughout the lodge
                         </li>
                         <li class="mb-2">
-                            <strong>Facilities:</strong> Central heating, TV, tea & coffee facilities
+                            <strong>Facilities:</strong> Kitchen, drying room for wet gear, fire pit & outdoor seating, secure bike storage
+                        </li>
+                        <li class="mb-2">
+                            <strong>Distance:</strong> 20 min drive from wedding
                         </li>
                     </ul>
 
                     <h3>Why Choose This Option?</h3>
-                    <p class="mb-4">Get the benefits of private facilities while maintaining an affordable price point. This option is ideal for groups of 2-4 people or for solo travelers who value privacy and comfort. Each room has its own en-suite bathroom.</p>
-
-                    <div class="alert alert-info">
-                        <strong>2 guests</strong> have selected this option
-                    </div>
-                    <div class="text-center" id="payButton-midrange">
+                    <p class="mb-4">Get the benefits of private facilities while maintaining an affordable price point. This option is ideal for groups of 2-4 people. Each room has its own en-suite bathroom. The lodge is fully booked out for the wedding, so will only have other wedding guests.</p>
+                <h3>Location</h3>
+                    <iframe width="100%" height="350" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJWSw3XdsffEgRjw3mBQSHl18&key=AIzaSyCfEBQlVKuoT4Qxy3eu-a2Lyqokyz_L75w"></iframe> 
+                    <div class="text-center mt-3" id="payButton-midrange">
                         <div class="d-flex gap-2 justify-content-center">
                             <button class="btn btn-lg btn-blue" data-bs-toggle="modal" data-bs-target="#bookingModal">Reserve A Spot</button>
                             <button class="btn btn-lg btn-rose" data-bs-toggle="modal" data-bs-target="#paymentModalMidrange">Pay Now</button>
                         </div>
                     </div>
-                </div>
-                <div class="card-footer bg-light">
-                    <a href="{% url 'accommodation' %}" class="btn btn-primary btn-sm">Back to Accommodation</a>
                 </div>
             </div>
         </div>

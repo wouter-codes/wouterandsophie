@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Update confirmation modal text with tier information
                         const tierText = document.getElementById('confirmationTierText');
                         if (tierText) {
-                            tierText.textContent = `Your requested beds for ${pair.tier} Accommodation have been successfully booked.`;
+                            tierText.textContent = `Your requested beds for ${pair.tier} Accommodation have been successfully booked. You're all set for your stay from 24 to 26 July!`;
                         }
                         
                         // Close payment modal

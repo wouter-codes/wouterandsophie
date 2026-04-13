@@ -47,6 +47,17 @@ h3 {
     color: var(--primary-blue);
 }
 
+/* HYPERLINKS */
+#other-comfort-options a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+}
+
+#other-comfort-options a:hover {
+    text-decoration: underline;
+    color: var(--primary-blue);
+}
+
 .index {
     animation: fadeInUp 1s ease-out forwards;
     flex: 1;
@@ -116,13 +127,13 @@ h3 {
     background-color: var(--secondary-rose);
 }
 
-.card a {
+.card .btn {
     background-color: var(--primary-blue);
     color: var(--primary-white);
     border: none;
 }
 
-.card a:hover {
+.card .btn:hover {
     background-color: var(--secondary-blue);
 }
 
