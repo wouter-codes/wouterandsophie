@@ -36,6 +36,13 @@ ALLOWED_HOSTS = ['.herokuapp.com', '.127.0.0.1', 'www.wouterandsophie.love',
 
 CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com', 'https://www.wouterandsophie.love', 'https://wouterandsophie.love']
 
+# CSRF Cookie Security Settings
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+
 # Application definition
 
 INSTALLED_APPS = [
