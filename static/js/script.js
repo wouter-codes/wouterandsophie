@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
         `,
         eur: `
             <p class="mb-0"><strong>Account Name:</strong> Wouter Klinkenberg</p>
-            <p class="mb-0"><strong>IBAN:</strong> GB46SRLG60837109247461</p>
-            <p class="mb-0"><strong>SWIFT/BIC:</strong> SRLGGB2L</p>
+            <p class="mb-0"><strong>IBAN:</strong> GB21SRLG60837107090631</p>
+            <p class="mb-0"><strong>SWIFT/BIC:</strong> SRLGGB3L</p>
         `
     };
 
