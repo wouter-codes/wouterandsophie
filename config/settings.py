@@ -32,16 +32,16 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ['.herokuapp.com', '.127.0.0.1', 'www.wouterandsophie.love',
-    'wouterandsophie.love',]
+    'wouterandsophie.love','8000-***********', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com', 'https://www.wouterandsophie.love', 'https://wouterandsophie.love']
 
 # CSRF Cookie Security Settings
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False if DEBUG else True
 CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = False if DEBUG else True
+SECURE_SSL_REDIRECT = False if DEBUG else True
 
 # Application definition
 
