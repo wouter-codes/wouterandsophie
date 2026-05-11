@@ -48,6 +48,10 @@ def comfort(request):
     return render(request, 'love/comfort.html')
 
 
+def wedding_list(request):
+    return render(request, 'love/wedding_list.html')
+
+
 @require_POST
 def submit_booking(request):
     """
