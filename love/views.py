@@ -48,6 +48,14 @@ def comfort(request):
     return render(request, 'love/comfort.html')
 
 
+def faq(request):
+    return render(request, 'love/faq.html')
+
+
+def the_wedding(request):
+    return render(request, 'love/the_wedding.html')
+
+
 def wedding_list(request):
     return render(request, 'love/wedding_list.html')
 

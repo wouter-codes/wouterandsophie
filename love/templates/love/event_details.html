@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Header -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1>Event Details</h1>
+            <p>Everything you need to know about our wedding day</p>
+        </div>
+    </div>
+
+    <!-- Ceremony & Reception Cards -->
+    <div class="row g-4 mb-5">
+        <!-- Ceremony -->
+        <div class="col-md-12 col-lg-6">
+            <div class="card h-100 shadow-sm border-primary">
+                <div class="card-header">
+                    <h2 class="card-title mb-0">📍 Ceremony</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Location:</strong> [Venue Name]</p>
+                    <p><strong>Address:</strong> [Full Address]</p>
+                    <p><strong>Time:</strong> [HH:MM AM/PM]</p>
+                    <p class="text-muted small"><strong>Dress Code:</strong> [Formal / Semi-Formal / Casual]</p>
+                </div>
+            </div>
+        </div>
+        <!-- Reception -->
+        <div class="col-md-12 col-lg-6">
+            <div class="card h-100 shadow-sm border-danger">
+                <div class="card-header">
+                    <h2 class="card-title mb-0">🍽️ Reception</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Location:</strong> [Venue Name]</p>
+                    <p><strong>Address:</strong> [Full Address / Same as Ceremony]</p>
+                    <p><strong>Time:</strong> [HH:MM AM/PM]</p>
+                    <p class="text-muted small"><strong>Format:</strong> [Dinner / Cocktail / Seated meal]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

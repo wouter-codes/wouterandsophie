@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Header -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1>Wedding Day Schedule</h1>
+            <p>Here's what to expect on our special day</p>
+        </div>
+    </div>
+
+    <!-- Timeline Cards -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-12">
+            <div class="card h-100 shadow-sm border-primary">
+                <div class="card-body">
+                    <div class="timeline">
+                        <div class="mb-4 pb-4" style="border-left: 3px solid var(--primary-blue); padding-left: 1.5rem;">
+                            <h5>10:00 AM - Guest Arrival</h5>
+                            <p class="text-muted mb-0">[Arrival location and any parking/transportation info]</p>
+                        </div>
+                        <div class="mb-4 pb-4" style="border-left: 3px solid var(--primary-blue); padding-left: 1.5rem;">
+                            <h5>11:00 AM - Ceremony</h5>
+                            <p class="text-muted mb-0">[Duration approximately 30-45 minutes]</p>
+                        </div>
+                        <div class="mb-4 pb-4" style="border-left: 3px solid var(--primary-blue); padding-left: 1.5rem;">
+                            <h5>12:00 PM - Photos & Cocktails</h5>
+                            <p class="text-muted mb-0">[Formal photos and cocktail hour with appetizers]</p>
+                        </div>
+                        <div class="mb-4 pb-4" style="border-left: 3px solid var(--primary-blue); padding-left: 1.5rem;">
+                            <h5>2:00 PM - Reception Dinner</h5>
+                            <p class="text-muted mb-0">[Dinner service, toasts, and celebrations]</p>
+                        </div>
+                        <div style="border-left: 3px solid var(--primary-blue); padding-left: 1.5rem;">
+                            <h5>Evening - Dancing & Celebration</h5>
+                            <p class="text-muted mb-0">[Dancing and celebration until late]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container my-5">
@@ -13,10 +14,10 @@
     <!-- Gift Categories -->
     <div class="row g-4 mb-5">
         <!-- Home & Kitchen -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-header" style="background-color: var(--primary-blue);">
-                    <h2 class="card-title text-white mb-0">🏠 Home & Kitchen</h2>
+        <div class="col-md-12 col-lg-4">
+            <div class="card h-100 shadow-sm border-primary">
+                <div class="card-header">
+                    <h2 class="card-title mb-0">🏠 Home & Kitchen</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Help us build our new home with practical and beautiful items for our kitchen and living spaces.</p>
@@ -27,17 +28,14 @@
                         <li class="mb-2">• Cookware and utensils</li>
                     </ul>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-blue btn-sm w-100">View Items</a>
-                </div>
             </div>
         </div>
 
         <!-- Experiences -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-header" style="background-color: var(--primary-rose);">
-                    <h2 class="card-title text-white mb-0">✈️ Experiences</h2>
+        <div class="col-md-12 col-lg-4">
+            <div class="card h-100 shadow-sm border-danger">
+                <div class="card-header">
+                    <h2 class="card-title mb-0">✈️ Experiences</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Create memories with us! We'd love experiences we can enjoy together.</p>
@@ -48,17 +46,14 @@
                         <li class="mb-2">• Wellness & spa days</li>
                     </ul>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-rose btn-sm w-100">View Items</a>
-                </div>
             </div>
         </div>
 
         <!-- Honeymoon Fund -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-header" style="background-color: var(--primary-green);">
-                    <h2 class="card-title text-white mb-0">🌍 Honeymoon Fund</h2>
+        <div class="col-md-12 col-lg-4">
+            <div class="card h-100 shadow-sm border-success">
+                <div class="card-header">
+                    <h2 class="card-title mb-0">🌍 Honeymoon Fund</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Help us create the honeymoon of our dreams with a contribution to our honeymoon fund.</p>
@@ -68,9 +63,6 @@
                         <li class="mb-2">• Any amount welcome</li>
                         <li class="mb-2">• Make magical memories</li>
                     </ul>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-sm w-100" style="background-color: var(--primary-green); color: white; text-decoration: none;">View Items</a>
                 </div>
             </div>
         </div>
