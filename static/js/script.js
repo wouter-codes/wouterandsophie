@@ -22,6 +22,20 @@ document.addEventListener('DOMContentLoaded', function() {
         `
     };
 
+    // Gift bank details data (honeymoon fundraiser)
+    const GIFT_BANK_DETAILS = {
+        gbp: `
+            <p class="mb-0"><strong>Account Name:</strong> Sophie May</p>
+            <p class="mb-0"><strong>Sort Code:</strong> 60-83-71</p>
+            <p class="mb-0"><strong>Account Number:</strong> 20373725</p>
+        `,
+        eur: `
+            <p class="mb-0"><strong>Account Name:</strong> Wouter Klinkenberg</p>
+            <p class="mb-0"><strong>IBAN:</strong> GB21SRLG60837107090631</p>
+            <p class="mb-0"><strong>SWIFT/BIC:</strong> SRLGGB3L</p>
+        `
+    };
+
     // Function to update cost display
     function updateCostDisplay(tier, rangeValue, currency) {
         const pricePerNight = TIERS[tier].pricePerNight;
@@ -52,6 +66,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const bankDetailsEl = document.getElementById(TIERS[tier].bankDetailsId);
         if (bankDetailsEl && BANK_DETAILS[currency]) {
             bankDetailsEl.innerHTML = BANK_DETAILS[currency];
+        }
+    }
+
+    // Function to update gift bank details display
+    function updateGiftBankDetails(currency) {
+        const bankDetailsEl = document.getElementById('giftBankDetails');
+        if (bankDetailsEl && GIFT_BANK_DETAILS[currency]) {
+            bankDetailsEl.innerHTML = GIFT_BANK_DETAILS[currency];
         }
     }
 
@@ -139,6 +161,92 @@ document.addEventListener('DOMContentLoaded', function() {
             updateGuestNameFields(tier, initialValue);
         }
     });
+
+    // Honeymoon fundraiser modal currency toggle
+    document.querySelectorAll('.gift-currency-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const currency = this.getAttribute('data-currency');
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.gift-currency-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Update bank details dynamically
+            updateGiftBankDetails(currency);
+        });
+    });
+    
+    // Initialize gift bank details with GBP on page load
+    updateGiftBankDetails('gbp');
+    
+    // Handle send gift message button
+    const sendGiftMessageBtn = document.getElementById('sendGiftMessage');
+    if (sendGiftMessageBtn) {
+        sendGiftMessageBtn.addEventListener('click', async function() {
+            const messageText = document.getElementById('giftMessage').value.trim();
+            
+            if (!messageText) {
+                alert('Please enter a message before sending');
+                return;
+            }
+            
+            // Disable button to prevent double submissions
+            sendGiftMessageBtn.disabled = true;
+            const originalText = sendGiftMessageBtn.textContent;
+            sendGiftMessageBtn.textContent = 'Sending...';
+            
+            try {
+                // Get CSRF token from cookie
+                function getCookie(name) {
+                    let cookieValue = null;
+                    if (document.cookie && document.cookie !== '') {
+                        const cookies = document.cookie.split(';');
+                        for (let i = 0; i < cookies.length; i++) {
+                            const cookie = cookies[i].trim();
+                            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+                const csrftoken = getCookie('csrftoken');
+                
+                // POST message to backend
+                const response = await fetch('/api/send-gift-message/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrftoken || ''
+                    },
+                    body: JSON.stringify({
+                        message: messageText
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('Message sent successfully! Thank you so much for your gift!');
+                    document.getElementById('giftMessage').value = '';
+                } else {
+                    alert('Error sending message: ' + (result.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error sending message. Please try again.');
+            } finally {
+                // Re-enable button
+                sendGiftMessageBtn.disabled = false;
+                sendGiftMessageBtn.textContent = originalText;
+            }
+        });
+    }
 });
 
 // Scroll to element function

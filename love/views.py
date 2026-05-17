@@ -134,3 +134,65 @@ This email was generated automatically from the booking form.
             {'success': False, 'error': str(e)},
             status=500
         )
+
+
+@require_POST
+def send_gift_message(request):
+    """
+    Handle gift message submission and send email.
+    Expects JSON POST data with: message
+    """
+    try:
+        data = json.loads(request.body)
+        
+        # Extract message
+        message_text = data.get('message', '').strip()
+        
+        # Validate message is not empty
+        if not message_text:
+            return JsonResponse(
+                {'success': False, 'error': 'Message cannot be empty'},
+                status=400
+            )
+        
+        # Get current timestamp
+        submission_time = timezone.now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        # Prepare email content
+        subject = "New Gift Message - Honeymoon Fundraiser"
+        
+        message = f"""
+New Honeymoon Gift Message Received
+=========================
+
+Submission Date: {submission_time}
+
+Message:
+--------
+{message_text}
+
+---
+This email was generated automatically from the honeymoon fundraiser gift message form.
+"""
+        
+        # Send email to admin
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=['rsvp@wouterandsophie.love'],
+            fail_silently=False,
+        )
+        
+        return JsonResponse({'success': True, 'message': 'Message sent successfully'})
+    
+    except json.JSONDecodeError:
+        return JsonResponse(
+            {'success': False, 'error': 'Invalid JSON'},
+            status=400
+        )
+    except Exception as e:
+        return JsonResponse(
+            {'success': False, 'error': str(e)},
+            status=500
+        )

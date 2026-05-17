@@ -7,7 +7,8 @@
     <div class="row mb-5">
         <div class="col-lg-8 mx-auto text-center">
             <h1>Our Wedding List</h1>
-            <p>Your presence is the present we truly desire. However, if you wish to give us a gift, here are some items we love and would be happy to receive.</p>
+            <p>Your presence is all we desire! However, if you wish to give us something, here are some things we'd love! </p>
+            <button class="btn btn-rose btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#honeymoonFundraiser">Donate To Honeymoon</button>
         </div>
     </div>
 
@@ -15,7 +16,7 @@
     <div class="row mb-5">
         <div class="col-lg-10 mx-auto">
             <div style="border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <iframe id="wedding-registry" src="https://www.thingstogetme.com/2255726ac5b4c" width="100%" height="1000" scrolling="yes" style="border: none; display: block;"></iframe>
+                <iframe id="wedding-registry" src="https://www.thingstogetme.com/2255726ac5b4c" width="100%" height="1000px" scrolling="yes" style="border: none; display: block;"></iframe>
             </div>
         </div>
     </div>
@@ -182,4 +183,38 @@
         </div>
     </div>
 </div>
+
+<!-- Honeymoon Fundraiser Modal -->
+<div class="modal fade" id="honeymoonFundraiser" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-primary">
+            <div class="modal-header" style="background-color: var(--primary-rose); color: var(--primary-white);">
+                <h5 class="modal-title">Support Our Honeymoon Fund</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3"><strong>Thank you for your generosity!</strong></p>
+                <p class="text-muted mb-4">You can gift to our honeymoon using the following bank details:</p>
+                
+                <div class="alert alert-light border mt-3">
+                    <div class="alert alert-light border mb-0" id="giftBankDetails"></div>
+                    <div class="btn-group mt-3" role="group" aria-label="Currency selection">
+                    <button type="button" class="btn btn-rose active gift-currency-btn" data-currency="gbp"><strong>Pounds £</strong></button>
+                    <button type="button" class="btn btn-rose gift-currency-btn" data-currency="eur"><strong>Euros €</strong></button>
+                </div>
+                </div>
+                
+                
+                
+                <div class="mb-3 mt-4">
+                    <label for="giftMessage" class="form-label"><strong>Send us a message (optional):</strong></label>
+                    <textarea class="form-control" id="giftMessage" rows="3" placeholder="Leave us a personal message! We'd love to hear from you..."></textarea>
+                </div>
+                
+                <button type="button" class="btn btn-rose" id="sendGiftMessage">Send Message</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

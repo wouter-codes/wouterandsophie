@@ -11,5 +11,6 @@ urlpatterns = [
     path('wedding-list/', views.wedding_list, name='wedding-list'),
     path('faq/', views.faq, name='faq'),
     path('api/submit-booking/', views.submit_booking, name='submit-booking'),
+    path('api/send-gift-message/', views.send_gift_message, name='send-gift-message'),
     path('', views.index, name='index'),
 ]
