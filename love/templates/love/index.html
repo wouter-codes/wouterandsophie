@@ -2,38 +2,16 @@
 {% load static %}
 
 {% block content %}
+<div class="container my-5">
     <!-- Hero Section -->
-    <section class="hero-section container-fluid d-flex flex-column justify-content-center align-items-center text-center py-5" style="background-color: var(--bg-color-primary); min-height: 50vh;">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <h1 class="mb-3">Wouter & Sophie</h1>
-            <p class="mb-4">We are getting married!</p>
-            <p class="fs-5 mb-4">Wedding Date: 25th July 2026</p>
-            <p class="text-muted mb-5">Service: Church of St Peter & St Felix, Kirby Hill, Richmond, North-Yorkshire, DL11 7JH<br>
-            Reception: Hartforth Mill, Gilling-West, Richmond, North Yorkshire, DL10 5JZ </p>
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="home-header">We're getting married!</h1>
+            <img src="{% static 'images/W&S.webp' %}" alt="Wouter and Sophie invitation front" id="hero-image">
+            <h1 class="home-header fs-5 mb-4">25th July 2026</h1>
             <a href="{% url 'the-wedding' %}" class="btn btn-blue btn-lg me-2">View Details</a>
-            <a href="{% url 'accommodation' %}" class="btn btn-rose btn-lg">Accommodation</a>
+            <a href="mailto:rsvp@wouterandsophie.love?subject=RSVP%20Wedding%20Wouter%20and%20Sophie" target="_blank" class="btn btn-rose btn-lg">RSVP</a>
         </div>
-    </section>
-
-    
-    <!-- RSVP Section -->
-    <section id="rsvp" class="py-5" style="background-color: var(--secondary-white);">
-        <div class="container">
-            <h1 class="text-center mb-5">Let's Celebrate Together</h1>
-            <div class="row">
-                <div class="col-lg-6 mx-auto text-center">
-                    <p class="lead mb-4">We would love for you to join us on our special day!</p>
-                    <p class="mb-4">[RSVP Deadline: Month DD, YYYY]</p>
-                    <p class="mb-4">Please let us know if you will be attending and fill out your accommodation preferences:</p>
-                    <a href="https://forms.gle/YxjfzWkDQHknUry39" target="_blank" class="btn btn-rose btn-lg">Open RSVP Form</a>
-                    <p class="mt-4">
-                        <strong>Or email us:</strong><br>
-                        <a href="mailto:rsvp@wouterandsophie.love" style="color: var(--primary-blue); text-decoration: none;">rsvp@wouterandsophie.love</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   
+    </div>
+</div> 
 {% endblock %}

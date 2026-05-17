@@ -5,6 +5,8 @@
     --secondary-font: "Capriola", sans-serif;
     --tertiary-font: "Lato", sans-serif;
     --quaternary-font: "Tenor+Sans", sans-serif;
+    --fifth-font: "Tangerine", cursive;
+    --sixth-font: "Cookie", cursive;
 
     /* Colours from wedding invitation */
     --primary-blue: #4C7B99; /* Steel Blue (from flower) */
@@ -78,6 +80,17 @@ h3 {
 
 .navbar .logo {
     height: 40px;
+}
+
+/* Home page */
+.home-header {
+    font-size: 2rem !important;
+}
+
+#hero-image {
+    max-width: 100%;
+    height: 60vh;
+    object-fit: contain;
 }
 
 /* CARDS */
@@ -210,11 +223,29 @@ h3 {
     }
 }
 
+/* MEDIA QUERIES */
+
+@media (max-width: 375px) {
+    #hero-image {
+        height: 50vh;
+    }
+}
+
 @media (max-width: 576px) {
     .card img {
         height: 250px;
         object-fit: cover;
     }
+
+    /* #hero-image {
+    max-height: 60vh;
+} */
+}
+
+@media (min-width: 577px) {
+    /* #hero-image {
+    max-height: 60vh;
+} */
 }
 
 @media (min-width: 992px) {
