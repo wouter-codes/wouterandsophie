@@ -49,6 +49,10 @@ h3 {
     color: var(--primary-blue);
 }
 
+h4 {
+    color: var(--primary-blue);
+}
+
 /* HYPERLINKS */
 #other-comfort-options a {
     color: var(--secondary-blue);
@@ -233,10 +237,12 @@ h3 {
 
 /* Timeline Items */
 .timeline-item {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     border-radius: 4px;
     transition: background-color 0.2s ease;
-    cursor: default;
+    cursor: url('../images/flower-cursor.png') 32 32, auto;
+    border-left: 3px solid var(--primary-blue);
+    border-right: 3px solid var(--primary-blue);
 }
 
 .timeline-item:hover {
