@@ -1,45 +1,80 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container my-5">
     <!-- Header -->
-    <div class="row mb-5">
+    <div class="row mb-3">
         <div class="col-lg-8 mx-auto text-center">
             <h1>The Wedding</h1>
-            <p>Everything you need to know about our special day</p>
+            <p>Everything you need to know about the what, where, when.</p>
         </div>
     </div>
 
     <!-- Event Details Section -->
     <div class="row mb-5">
         <div class="col-lg-8 mx-auto">
-            <h2 class="text-center mb-4">Event Details</h2>
+            <h3 class="text-center mb-4">Event Details</h3>
             <div class="row g-4">
                 <!-- Ceremony -->
                 <div class="col-md-12 col-lg-6">
-                    <div class="card h-100 shadow-sm border-primary">
-                        <div class="card-header">
-                            <h3 class="card-title mb-0">📍 Service</h3>
+                        <div class="card details-card shadow-sm border-primary">
+                            <div class="card-header">
+                                <h3 class="d-flex align-items-center card-title mb-0"><span class="pb-1 pe-1">⛪️</span>Service</h3>
+                            </div>
+                            <div class="card-body details-card-drawing">
+                                <img src="{% static 'images/church-drawing.png' %}" alt="Church Drawing" class="mb-3" style="width: 100%;">
+                            </div>
+                            <div class="card-footer"><h3>Ceremony at 3:00 PM</h3></div>
+                            <div class="card-body pb-0">
+                                <p><strong>Location</strong> <br>Church of St Peter & St Felix </p>
+                                <p><strong>Address</strong> <br>Kirby Hill, Richmond, North-Yorkshire, DL11 7JH</p>
+                                <p><strong>Parking</strong> <br>On village green next to church</p>
+                                <p class="mb-1"><strong>Directions</strong> <br>
+                                    <div style="display: flex; gap: 8px; align-items: center;">
+                                        <a href="https://maps.app.goo.gl/hAv61CPqAn4KCwHE6" target="_blank" class="btn-directions">
+                                            <svg class="directions-icon" viewBox="0 0 24 24" fill="#ea4335">
+                                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                            </svg>
+                                            Google Maps
+                                        </a>
+                                        <a href="https://w3w.co/skies.require.skills" target="_blank" class="btn-directions">
+                                            <span class="w3w-icon">///</span>
+                                            What3Words
+                                        </a>
+                                    </div>
+                                </p>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <p><strong>Location:</strong>Church of St Peter & St Felix </p>
-                            <p><strong>Address:</strong> Kirby Hill, Richmond, North-Yorkshire, DL11 7JH</p>
-                            <p><strong>Time:</strong> 3pm</p>
-                            <p class="text-muted small"><strong>Dress Code:</strong> [Formal / Semi-Formal / Casual]</p>
-                        </div>
-                    </div>
                 </div>
                 <!-- Reception -->
                 <div class="col-md-12 col-lg-6">
-                    <div class="card h-100 shadow-sm border-danger">
+                    <div class="card details-card shadow-sm border-danger">
                         <div class="card-header">
-                            <h3 class="card-title mb-0">🍽️ Reception</h3>
+                            <h3 class="d-flex align-items-center card-title mb-0"><span class="pb-1 pe-1">🥂</span>Reception</h3>
                         </div>
-                        <div class="card-body">
-                            <p><strong>Location:</strong> Hartforth Mill</p>
-                            <p><strong>Address:</strong> Gilling-West, Richmond, North Yorkshire, DL10 5JZ</p>
-                            <p><strong>Time:</strong> After service</p>
-                            <p class="text-muted small"><strong>Format:</strong> [Dinner / Cocktail / Seated meal]</p>
+                        <div class="card-body details-card-drawing">
+                            <img src="{% static 'images/hartforth-drawing.png' %}" alt="Hartforth Drawing" class="mb-3" style="width: 100%;">
+                        </div>
+                        <div class="card-footer"><h3>Afterwards</h3></div>
+                        <div class="card-body pb-0">
+                            <p><strong>Location</strong> <br>Hartforth Mill</p>
+                            <p><strong>Address</strong> <br>Gilling-West, Richmond, North Yorkshire, DL10 5JZ</p>
+                            <p><strong>Parking</strong> <br>At location</p>
+                            <p class="mb-1"><strong>Directions</strong> <span class="text-muted">(Follow the signs!)</span></p>
+                                    <div style="display: flex; gap: 8px; align-items: center;">
+                                        <a href="https://maps.app.goo.gl/Rs5r8JHkFMqWczN98" target="_blank" class="btn-directions">
+                                            <svg class="directions-icon" viewBox="0 0 24 24" fill="#ea4335">
+                                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                            </svg>
+                                            Google Maps
+                                        </a>
+                                        <a href="https://w3w.co/branded.somewhere.bikers" target="_blank" class="btn-directions">
+                                            <span class="w3w-icon">///</span>
+                                            What3Words
+                                        </a>
+                                    </div>
+                                </p>
                         </div>
                     </div>
                 </div>
@@ -50,7 +85,7 @@
     <!-- Schedule Section -->
     <div class="row mb-5">
         <div class="col-lg-8 mx-auto">
-            <h2 class="text-center mb-4">Wedding Day Schedule</h2>
+            <h3 class="text-center mb-4">Wedding Day Schedule</h3>
             <div class="row g-4">
                 <div class="col-md-12">
                     <div class="card h-100 shadow-sm border-primary">
