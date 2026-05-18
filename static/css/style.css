@@ -231,6 +231,18 @@ h3 {
     font-size: 1rem;
 }
 
+/* Timeline Items */
+.timeline-item {
+    padding: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    cursor: default;
+}
+
+.timeline-item:hover {
+    background-color: rgba(195, 95, 125, 0.1);
+}
+
 /* CAROUSEL OVERLAY BUTTON */
 .carousel-book-btn {
     position: absolute;

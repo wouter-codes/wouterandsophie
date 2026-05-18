@@ -112,6 +112,11 @@ h3 {
     transform: translateY(-4px);
 }
 
+.details-card:hover {
+    box-shadow: 0 6px 16px rgba(159, 51, 64, 0.3) !important;
+    transform: translateY(-4px);  
+}
+
 .card-title h1, h2, h3 {
     font-family: var(--tertiary-font);
 }
@@ -195,6 +200,49 @@ h3 {
     border-top: 2px solid var(--secondary-rose);
 }
 
+/* Directions */
+.btn-directions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--primary-blue);
+    background-color: transparent;
+    color: var(--primary-blue);
+    padding: 4px 8px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-directions:hover {
+    background-color: var(--primary-blue);
+    color: var(--primary-white);
+}
+
+.directions-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.w3w-icon {
+    font-weight: 900;
+    color: #ea4335;
+    font-size: 1rem;
+}
+
+/* Timeline Items */
+.timeline-item {
+    padding: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    cursor: default;
+}
+
+.timeline-item:hover {
+    background-color: rgba(195, 95, 125, 0.1);
+}
+
 /* CAROUSEL OVERLAY BUTTON */
 .carousel-book-btn {
     position: absolute;
@@ -243,14 +291,16 @@ h3 {
 }
 
 @media (min-width: 577px) {
-    /* #hero-image {
-    max-height: 60vh;
-} */
+ 
 }
 
 @media (min-width: 992px) {
     .card img {
         height: 200px;
         object-fit: cover;
+    }
+
+    .details-card-drawing {
+    height: 250px;
     }
 }
