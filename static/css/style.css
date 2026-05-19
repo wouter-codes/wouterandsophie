@@ -25,6 +25,8 @@
     /* Background colours */
     --bg-color-primary: #E6DED5; /* Sandy Sail (Light Cream) */
     --bg-color-secondary: #B8AFA3; /* Sandy Sail (Darker) */
+    --bg-color-tertiary: #f6f3ee; /* Sandy Sail (Darkest) */
+
 }
 
 /* CONTENT WRAPPER - ensures all pages fill viewport height if needed */
@@ -159,6 +161,17 @@ h4 {
 
 .card .btn:hover {
     background-color: var(--secondary-blue);
+    cursor: pointer;
+}
+
+#honeymoon-card {
+    cursor: url('../images/boat-logo-cursor.webp') 64 64, auto !important;
+    background-color: var(--bg-color-tertiary);
+    border-radius: 16px;
+}
+
+#honeymoon-card button:hover {
+    cursor: grab, auto !important;
 }
 
 .btn-rose {
